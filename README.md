@@ -12,3 +12,8 @@
 开闭原则：对扩展开放，对修改是封闭。
 修改后类图如下：
   ![image](https://github.com/BAZINGAyi/ImageLoader/raw/master/screenshot/openCloseObligation.png)
+ <hr/>
+ 补充：
+ 重构后对里式替换原则的说明：
+ 概念：只要父类能出现的地方，子类就能出现，而且替换为子类不会产生任何问题。(核心：抽象（抽象又依赖于继承）)
+ 项目中 MemoryCache、DiskCache 都可以替换 ImageCache 的工作，并且保证行为的正确性，用户只要在使用时指定具体的缓存对象就可以动态替换 ImageCache 中的缓存策略。
