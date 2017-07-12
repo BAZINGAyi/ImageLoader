@@ -11,7 +11,7 @@
 根据开闭原则，通过 ImageLoader 中的 setImaageCache() 方法注入不同的缓存实现，提高了扩展性
 开闭原则：对扩展开放，对修改是封闭。
 修改后类图如下：
-  ![image](https://github.com/BAZINGAyi/ImageLoader/raw/master/screenshot/openCloseObligation.png)
+![image](https://github.com/BAZINGAyi/ImageLoader/raw/master/screenshot/openCloseObligation.png)
  <hr/>
  补充：
  重构后对里式替换原则的说明：
