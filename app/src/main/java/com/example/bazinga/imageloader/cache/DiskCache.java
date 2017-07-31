@@ -1,8 +1,10 @@
-package com.example.bazinga.imageloader;
+package com.example.bazinga.imageloader.cache;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+
+import com.example.bazinga.imageloader.utils.CloseUtils;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -31,14 +33,7 @@ public class DiskCache implements ImageCache{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
-
-            if (fileOutputStream != null){
-                try {
-                    fileOutputStream.close();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
+            CloseUtils.closeQuietly(fileOutputStream);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.bazinga.imageloader;
+package com.example.bazinga.imageloader.cache;
 
 import android.graphics.Bitmap;
 import android.media.Image;

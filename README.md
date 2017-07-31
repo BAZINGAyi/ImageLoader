@@ -25,4 +25,12 @@
  3. 细节应该依赖于抽象
  总结：高层模块为调用端，低层模块是具体实现类。模块间的依赖通过抽象产生，实现类之间不发生直接的依赖关系，依赖关系通过接口或抽象实现。
  具体体现：在之前的 ImageLoader 中 缓存是这样表示的：MemoryCache m = new MemoryCache()；这就导致了 ImageLoader 直接依赖了一个具体的实现，之后用户想用双缓存时，就需要改变成 DoubleCache c = new DoubleCache(); 当用户的需求再次发生改变的时候，还需要修改 ImageLoader ，但是应用上依赖倒置原则，将 ImageCache 抽象。就彻底解决了这个问题。如：ImageCache mCache = new MemoryCahe();在添加其他的缓存方式时，仅仅需要实现 ImageCahce 的接口。
+ <hr>
+ 补充：项目中接口隔离原则的应用 InterfaceSegregation Principles
+ 概念：接口隔离的原则就是将庞大的接口拆分成更小的和更具体的接口
+ 应用：在之前的 DiskCache 缓存的 put 方法中必须要保证 *OutputStream*要被关闭，所以有了之复杂的写法，但是只要用到 *OutputStream* 就需要重复关闭的写法，
+ 带来的后果是代码可读性非常差。后来实现了 *CloseUtils* 工具类，现在只需要在相应的关闭操作内调用关闭即可.通过 Closeable 接口将可关闭的对象抽象起来
+ ，这样只需要客户度啊依赖于 CLoseable 就可以对客户端隐藏其他接口信息，客户端只需要知道这个对象可关闭即可.
+ 总结：
+ *ImageLoader* 中的 ImageCache 就是将接口隔离原则的运用，ImageLoader 只需要知道该缓存对象有存，取缓存的接口即可，其他的一概不管，这就使得缓存功能的具体实现对 ImageLoader 隐藏.
 

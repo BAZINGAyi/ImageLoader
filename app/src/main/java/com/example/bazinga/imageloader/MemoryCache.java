@@ -3,11 +3,13 @@ package com.example.bazinga.imageloader;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
+import com.example.bazinga.imageloader.cache.ImageCache;
+
 /**
  * Created by bazinga on 2017/7/11.
  */
 
-public class MemoryCache implements ImageCache{
+public class MemoryCache implements ImageCache {
 
     // 图片缓存
     LruCache<String,Bitmap> mImageCache;

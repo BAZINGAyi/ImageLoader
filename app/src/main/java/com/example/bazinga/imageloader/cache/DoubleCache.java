@@ -1,7 +1,8 @@
-package com.example.bazinga.imageloader;
+package com.example.bazinga.imageloader.cache;
 
 import android.graphics.Bitmap;
-import android.util.Log;
+
+import com.example.bazinga.imageloader.MemoryCache;
 
 /**
  * Created by bazinga on 2017/7/11.

@@ -1,12 +1,15 @@
 package com.example.bazinga.imageloader;
 
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.bazinga.imageloader.cache.DiskCache;
+import com.example.bazinga.imageloader.cache.DoubleCache;
+import com.example.bazinga.imageloader.cache.ImageCache;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         cacheImageView = (ImageView)findViewById(R.id.cacheImage);
         button         = (Button) findViewById(R.id.loadCachePicture);
 
-        imageLoader.setImageCache(new DoubleCache());
+        imageLoader.(new DoubleCache());
         imageLoader.displayImage(pictureUrl,cacheImageView);
 
 

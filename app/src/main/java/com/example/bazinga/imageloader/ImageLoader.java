@@ -3,15 +3,13 @@ package com.example.bazinga.imageloader;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
-import android.util.LruCache;
-import android.widget.HeterogeneousExpandableList;
 import android.widget.ImageView;
 
+import com.example.bazinga.imageloader.cache.ImageCache;
+
 import java.io.IOException;
-import java.net.HttpRetryException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -21,7 +19,7 @@ import java.util.concurrent.Executors;
 
 public class ImageLoader {
     // 图片缓存
-    ImageCache                             mImageCache           =        new MemoryCache();
+    ImageCache mImageCache           =        new MemoryCache();
     // 线程池，线程数量为 CPU 数量
     ExecutorService                        mExecutorService      =        Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
@@ -54,7 +52,7 @@ public class ImageLoader {
      */
     private void submitLoadRequest(final String imageUrl, final ImageView imageView) {
 
-        Log.e(TAG, "开启了网络的请求");
+        Log.e(TAG, "开启了setImageCache网络的请求");
 
         imageView.setTag(imageUrl);
 
